@@ -106,9 +106,6 @@ POST /analyze
 
 ---
 
-## 📽 Optional Loom Walkthrough
-You may add a short Loom video here to walk through your solution.
-
 ---
 
 ## 📜 License
