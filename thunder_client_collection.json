@@ -1,0 +1,379 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Emotion Analysis API - CRUD Operations",
+  "dateExported": "2025-01-25T07:00:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "id": "folder1",
+      "name": "CRUD Operations",
+      "containerId": "",
+      "created": "2025-01-25T07:00:00.000Z",
+      "sortNum": 10000
+    },
+    {
+      "id": "folder2", 
+      "name": "Error Testing",
+      "containerId": "",
+      "created": "2025-01-25T07:00:00.000Z",
+      "sortNum": 20000
+    }
+  ],
+  "requests": [
+    {
+      "id": "req1",
+      "colId": "col1",
+      "containerId": "",
+      "name": "Health Check",
+      "url": "{{base_url}}/health",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req2",
+      "colId": "col1",
+      "containerId": "folder1",
+      "name": "CREATE - New Emotion Record",
+      "url": "{{base_url}}/emotions",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"text\": \"I'm feeling really excited about my new job opportunity!\"\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        },
+        {
+          "type": "json-query",
+          "custom": "json.id",
+          "action": "istype",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "id": "req3",
+      "colId": "col1", 
+      "containerId": "folder1",
+      "name": "CREATE - Anxious Record",
+      "url": "{{base_url}}/emotions",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"text\": \"I feel anxious about the upcoming presentation\"\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req4",
+      "colId": "col1",
+      "containerId": "folder1", 
+      "name": "CREATE - Happy Record",
+      "url": "{{base_url}}/emotions",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"text\": \"Today was a wonderful day, I'm so happy!\"\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req5",
+      "colId": "col1",
+      "containerId": "folder1",
+      "name": "READ - Get All Records",
+      "url": "{{base_url}}/emotions",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        },
+        {
+          "type": "json-query",
+          "custom": "json",
+          "action": "istype",
+          "value": "array"
+        }
+      ]
+    },
+    {
+      "id": "req6",
+      "colId": "col1",
+      "containerId": "folder1",
+      "name": "READ - Get Single Record",
+      "url": "{{base_url}}/emotions/{{record_id}}",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req7",
+      "colId": "col1",
+      "containerId": "folder1",
+      "name": "UPDATE - Update Text",
+      "url": "{{base_url}}/emotions/{{record_id}}",
+      "method": "PUT",
+      "sortNum": 70000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"text\": \"I'm feeling incredibly excited and confident about my new role!\"\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req8",
+      "colId": "col1",
+      "containerId": "folder1",
+      "name": "UPDATE - Update Emotion & Confidence",
+      "url": "{{base_url}}/emotions/{{record_id}}",
+      "method": "PUT",
+      "sortNum": 80000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"emotion\": \"Confident\",\n  \"confidence\": 0.95\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req9",
+      "colId": "col1",
+      "containerId": "folder1",
+      "name": "DELETE - Remove Record",
+      "url": "{{base_url}}/emotions/{{record_id}}",
+      "method": "DELETE",
+      "sortNum": 90000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req10",
+      "colId": "col1",
+      "containerId": "folder1",
+      "name": "VERIFY DELETE - Should Return 404",
+      "url": "{{base_url}}/emotions/{{record_id}}",
+      "method": "GET",
+      "sortNum": 100000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "404"
+        }
+      ]
+    },
+    {
+      "id": "req11",
+      "colId": "col1",
+      "containerId": "",
+      "name": "Legacy Analyze Endpoint",
+      "url": "{{base_url}}/analyze",
+      "method": "POST",
+      "sortNum": 110000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"text\": \"I'm feeling nervous about tomorrow's interview\"\n}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ]
+    },
+    {
+      "id": "req12",
+      "colId": "col1",
+      "containerId": "folder2",
+      "name": "ERROR - Invalid Record ID",
+      "url": "{{base_url}}/emotions/invalid-id-12345",
+      "method": "GET",
+      "sortNum": 120000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "404"
+        }
+      ]
+    },
+    {
+      "id": "req13",
+      "colId": "col1",
+      "containerId": "folder2",
+      "name": "ERROR - Empty Request Body",
+      "url": "{{base_url}}/emotions",
+      "method": "POST",
+      "sortNum": 130000,
+      "created": "2025-01-25T07:00:00.000Z",
+      "modified": "2025-01-25T07:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{}",
+        "form": []
+      },
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "422"
+        }
+      ]
+    }
+  ]
+}
